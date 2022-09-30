@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev":"nodemon server.js",
-    "seed:dev":"nodemon seed.js"
+    "start:dev": "nodemon server.js",
+    "seed:dev": "nodemon seed.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,7 @@
     "sequelize": "^6.23.2"
   },
   "devDependencies": {
+    "eslint": "^8.24.0",
     "nodemon": "^2.0.20"
   }
 }
