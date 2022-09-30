@@ -3,7 +3,6 @@ const {
 } = require('./db');
 
 const seedDB=async()=>{
-    // clearing the DB before seeding
     await db.sync({force:true,logging:false});
 
     //member instances
