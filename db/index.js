@@ -1,6 +1,7 @@
-const Member = require('./member.js');
-const Booking = require('./booking.js');
-const Facility = require('./facility.js');
+const db = require('./db')
+const Member = require('./member');
+const Booking = require('./booking');
+const Facility = require('./facility');
 
 //One-to-many self-referencing relationship between Members.
 //A member has one other member as a sponsor.
@@ -28,6 +29,7 @@ Facility.hasMany(Booking);
 Booking.belongsTo(Facility);
 
 module.exports = {
+    db,
     Member,
     Booking,
     Facility
