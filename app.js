@@ -1,56 +1,16 @@
 const express = require('express');
 //const methodOverride = require('method-override');
 const app = express();
-//const facilityRouter = require('./api/facility');
-//const homeRouter = require('./routes/home');
+const bookingRouter = require('./api/booking');
+const facilityRouter = require('./api/facility');
+const memberRouter = require('./api/member');
 
 app.use(express.urlencoded({ extended: false }));
 //app.use(express.static(__dirname + '/public'));
 //app.use(methodOverride('_method'));
-//app.use('/facilities',facilityRouter);
-
-const {
-    Facility,Member,Booking
-} = require('./db');
-
-//GET /api/facilities - returns all facilities with their respective bookings
-app.get('/facilities',async(req,res,next)=>{
-    try{
-        const facilities = await Facility.findAll({
-            include:Booking
-        });
-        res.send(facilities);
-    }catch(error){
-        next('Oops! You broke something...again!');
-    }
-}); 
-
-//GET /api/bookings - returns all bookings and the member who made each the booking
-app.get('/bookings',async(req,res,next)=>{
-    try{
-        const bookings = await Booking.findAll({
-            include:Member
-        });
-        res.send(bookings);
-    }catch(error){
-        next('Oops! You broke something...again!');
-    }
-});
-
-//GET /api/members - returns all members with their sponsor and any members they have sponsored.
-app.get('/members',async(req,res,next)=>{
-    try{
-        const members = await Member.findAll({
-            include:[
-                { model: Member, as: 'sponsor' },
-                { model: Member, as: 'sponsees' }
-            ]
-        });
-        res.send(members);
-    }catch(error){
-        next('Oops! You broke something...again!');
-    }
-});
+app.use('/bookings',bookingRouter);
+app.use('/facilities',facilityRouter);
+app.use('/members',memberRouter);
 
 const PORT = 3000;
 

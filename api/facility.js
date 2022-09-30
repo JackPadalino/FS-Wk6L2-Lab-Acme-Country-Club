@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const {
-    Member,Booking,Facility
+    Booking,Facility
 } = require('../db');
 
 //GET /api/facilities - returns all facilities with their respective bookings

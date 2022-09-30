@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const {
-    Member,Booking,Facility
+    Member
 } = require('../db');
 
 //GET /api/members - returns all members with their sponsor and any members they have sponsored.
-router.get('/members',async(req,res,next)=>{
+router.get('/',async(req,res,next)=>{
     try{
         const members = await Member.findAll({
             include:[

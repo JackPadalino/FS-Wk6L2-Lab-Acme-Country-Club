@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const {
-    Member,Booking,Facility
+    Member,Booking
 } = require('../db');
 
 //GET /api/bookings - returns all bookings and the member who made each the booking
-router.get('/bookings',async(req,res,next)=>{
+router.get('/',async(req,res,next)=>{
     try{
         const bookings = await Booking.findAll({
             include:Member
