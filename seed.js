@@ -1,6 +1,6 @@
 const {
     db,Member,Facility,Booking
-} = require('./db/newIndex');
+} = require('./db');
 
 const seedDB=async()=>{
     // clearing the DB before seeding
