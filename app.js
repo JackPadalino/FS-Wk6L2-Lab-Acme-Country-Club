@@ -1,12 +1,13 @@
 const express = require('express');
 //const methodOverride = require('method-override');
 const app = express();
+//const facilityRouter = require('./api/facility');
 //const homeRouter = require('./routes/home');
 
 app.use(express.urlencoded({ extended: false }));
 //app.use(express.static(__dirname + '/public'));
 //app.use(methodOverride('_method'));
-//app.use('/',homeRouter);
+//app.use('/facilities',facilityRouter);
 
 const {
     Facility,Member,Booking
@@ -22,7 +23,7 @@ app.get('/facilities',async(req,res,next)=>{
     }catch(error){
         next('Oops! You broke something...again!');
     }
-});
+}); 
 
 //GET /api/bookings - returns all bookings and the member who made each the booking
 app.get('/bookings',async(req,res,next)=>{
