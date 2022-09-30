@@ -46,8 +46,10 @@ app.get('/bookings',async(req,res,next)=>{
 app.get('/members',async(req,res,next)=>{
     try{
         const members = await Member.findAll({
-            include:[{ model: Member, as: 'sponsor' },{ model: Member, as: 'sponsees' }]
-            //include:Member.sponsorId
+            include:[
+                { model: Member, as: 'sponsor' },
+                { model: Member, as: 'sponsees' }
+            ]
         });
         res.send(members);
     }catch(error){
