@@ -12,13 +12,7 @@ const {
     Facility,Member,Booking
 } = require('./db');
 
-/* 
-GET /api/facilities - returns all facilities with their respective bookings
-GET /api/bookings - returns all bookings and the member who made each the booking
-GET /api/members - returns all members with their sponsor and any members they have sponsored. 
-*/
-
-// get all facilities route
+//GET /api/facilities - returns all facilities with their respective bookings
 app.get('/facilities',async(req,res,next)=>{
     try{
         const facilities = await Facility.findAll({
@@ -26,11 +20,11 @@ app.get('/facilities',async(req,res,next)=>{
         });
         res.send(facilities);
     }catch(error){
-        next('You broke something!')
+        next('Oops! You broke something...again!');
     }
 });
 
-// get all bookings route
+//GET /api/bookings - returns all bookings and the member who made each the booking
 app.get('/bookings',async(req,res,next)=>{
     try{
         const bookings = await Booking.findAll({
@@ -38,11 +32,11 @@ app.get('/bookings',async(req,res,next)=>{
         });
         res.send(bookings);
     }catch(error){
-        next('Oops! You broke something...again!')
+        next('Oops! You broke something...again!');
     }
 });
 
-// get all members route
+//GET /api/members - returns all members with their sponsor and any members they have sponsored.
 app.get('/members',async(req,res,next)=>{
     try{
         const members = await Member.findAll({
@@ -53,7 +47,7 @@ app.get('/members',async(req,res,next)=>{
         });
         res.send(members);
     }catch(error){
-        next('Oops! You broke something...again!')
+        next('Oops! You broke something...again!');
     }
 });
 
