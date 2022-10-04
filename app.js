@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
-
 app.use(express.urlencoded({ extended: false }));
+const volleyball = require('volleyball');
+app.use(volleyball);
 const apiRouter = require('./api');
 app.use('/api',apiRouter);
 
